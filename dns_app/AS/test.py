@@ -14,12 +14,12 @@ if __name__ == '__main__':
     # Example usage
     data = {
         "hostname": "fibonacci.com",
-        "ip": "127.0.0.1",
+        "ip": "192.168.1.73",
         "as_ip": "127.0.0.1",
         "as_port": "53533"
     }
 
-    # register_hostname(data)
+    register_hostname(data)
 
     response = send_dns_query(data)
     print(f'Received response:\n{response}')
