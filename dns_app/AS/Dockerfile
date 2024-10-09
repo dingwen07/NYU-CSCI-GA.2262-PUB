@@ -11,12 +11,12 @@ RUN groupadd -g 799 nyu && \
 # Set up a working folder and install the pre-reqs
 WORKDIR /app
 
-RUN pip install Flask
+RUN chmod 777 /app
 
 USER nyu
 
 COPY --chown=nyu:nyu . .
 
-EXPOSE 9090/tcp
+EXPOSE 53533/udp
 
 CMD [ "python", "./run.py" ]

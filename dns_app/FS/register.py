@@ -1,4 +1,5 @@
 import socket
+import re
 
 def register_hostname(data):
     # Validate input data
@@ -6,6 +7,10 @@ def register_hostname(data):
     for key in required_keys:
         if key not in data:
             raise ValueError(f"Missing required field: {key}")
+        
+    # Validate hostname
+    if not re.match(r"^[a-zA-Z0-9.-]*$", data['hostname']):
+        raise ValueError("Invalid hostname format")
 
     # Validate IP addresses
     try:
